@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+ -->
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="180dp"
+	    >
+	<android.support.v4.view.ViewPager
+    android:id="@+id/pager"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+	</android.support.v4.view.ViewPager>
+	</LinearLayout>  
+	
+	
+	<LinearLayout 
+	    	android:layout_width="match_parent"
+	   		 android:layout_height="wrap_content"
+	   		 android:layout_marginTop="15dp"
+	   		 android:layout_marginLeft="10dp"
+	   		 android:layout_marginRight="10dp"
+	  
+	   		 >
+ 			<TableLayout
+ 				     android:layout_width="match_parent"  
+    				android:layout_height="wrap_content">
+			    <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                     >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal" >
+
+                        <LinearLayout
+                            android:id="@+id/Search_food"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical" >
+
+                            <ImageView
+                                android:id="@+id/image_buy"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:src="@drawable/kaishigoumai" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="开始购买"
+                                android:textColor="#666666"
+                                android:textSize="12dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal" >
+
+                        <LinearLayout
+                            android:id="@+id/Search_outing"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical" >
+
+                            <ImageView
+                                android:id="@+id/image_order"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:src="@drawable/wodedingdan" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="我的订单"
+                                android:textColor="#666666"
+                                android:textSize="12dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal" >
+
+                        <LinearLayout
+                            android:id="@+id/Search_hotel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical" >
+
+                            <ImageView
+                                android:id="@+id/image_testing"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:src="@drawable/jingcaijiance" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="精菜检测"
+                                android:textColor="#666666"
+                                android:textSize="12dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                        <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal" >
+
+                        <LinearLayout
+                            android:id="@+id/Search_hotell"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical" >
+
+                            <ImageView
+                                android:id="@+id/iamge_recharge"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:src="@drawable/zhanghuchongzhi" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="账户充值"
+                                android:textColor="#666666"
+                                android:textSize="12dp" />
+                        </LinearLayout>
+                    </LinearLayout>  
+                </TableRow>                 
+			 </TableLayout>
+		</LinearLayout>
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="20dp"
+    android:background="@color/light_gray"
+    android:orientation="horizontal">
+    <View 
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        style="@style/backgroud"
+        />
+    <TextView 
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        />
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="限时抢购"
+   		style="@style/textclolor"
+   		android:textSize="12sp"
+   		android:gravity="center"
+        />
+    <TextView 
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="更多>"
+   		style="@style/textclolor"
+   		android:textSize="12sp"
+   		android:gravity="center"
+        />
+    <TextView 
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        />
+</LinearLayout>	
+</LinearLayout>  

@@ -1,0 +1,234 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"   
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/light_gray"
+    android:orientation="vertical" >
+  <RelativeLayout
+        android:id="@+id/titleBar1"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/orange" >
+
+        <ImageButton
+            android:id="@+id/title_but_right1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@null" />
+
+        <TextView
+            android:id="@+id/title_tv_right1"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:text="编辑"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/title_but_left1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:src="@drawable/back"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/title_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="购物车"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ly_notlogin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/dtb" />
+
+        <TextView
+            android:id="@+id/text_notlogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="您还没有登陆哦"
+            android:textColor="#C4C4C4"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/bt_notlogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="30dp"
+            android:background="#FF5613"
+            android:text="登陆"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ly_login1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/text_login1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="您的购物车还是空的"
+            android:textColor="#C4C4C4"
+            android:textSize="25sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="赶紧行动吧"
+            android:textColor="#C4C4C4"
+            android:textSize="25sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/bt_login1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:background="#FF5613"
+                android:text="马上去购物"
+                android:textColor="#FFFFFF" />
+
+            <ImageView
+                android:id="@+id/img_login1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/kgwc" />
+        </LinearLayout>
+    </LinearLayout>
+        <ListView
+            android:id="@+id/list_gwc"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:divider="#00000000"
+            android:scrollbars="none"
+             >
+        </ListView>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/shallowgray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/all_collect"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center_vertical"
+            android:src="@drawable/by" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:text="全选"
+            android:textSize="18sp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="22dp" >
+
+            <TextView
+                android:id="@+id/text_zsje"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="最少起订金额49/天"
+                android:textColor="#E68052"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/text_hesuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_zsje"
+                android:layout_marginTop="5dp"
+                android:text="合算："
+                android:textColor="#B8B8B8"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/text_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_zsje"
+                android:layout_marginTop="5dp"
+                android:layout_toLeftOf="@id/text_hesuan"
+                android:text="￥ 8.5"
+                android:textColor="#E68052"
+                android:textSize="17sp" />
+
+            <LinearLayout
+                android:id="@+id/ly_hiacha"
+                android:layout_width="wrap_content"
+                android:layout_height="58dp"
+                android:layout_alignParentRight="true"
+                android:background="#ADADAD" >
+
+                <TextView
+                    android:id="@+id/text_haicha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:gravity="center_vertical"
+                    android:text="还差45元"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/shallowgray" />
+
+</LinearLayout>

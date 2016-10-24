@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:background="@color/light_gray"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:src="@drawable/dbtb" />
+
+    <EditText
+        android:id="@+id/text_mobile1"
+        android:layout_width="290dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/frame"
+        android:drawableLeft="@drawable/zcsj"
+        android:drawablePadding="10dp"
+        android:hint="请输入手机号"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#99000000" />
+        <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp">
+       <EditText
+        android:id="@+id/edit_yzm"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/frame"
+        android:drawableLeft="@drawable/yzm"
+        android:drawablePadding="10dp"
+        android:hint="验证码"
+        android:layout_marginTop="2dp"
+        android:paddingLeft="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#99000000" />
+       <TextView 
+           android:id="@+id/text_yzm"
+           android:layout_width="90dp"
+           android:layout_height="40dp"
+           android:textColor="#999999"
+           android:gravity="center"
+           android:background="@drawable/bg_gray_side"
+           android:text="重新发送"/>
+    </LinearLayout>
+
+    
+    <EditText
+        android:id="@+id/password1"
+        android:layout_width="290dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/frame"
+        android:drawableLeft="@drawable/suo"
+        android:layout_marginTop="2dp"
+        android:drawablePadding="10dp"
+        android:hint="请输入密码"
+        android:paddingLeft="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#99000000" />
+
+     <EditText
+        android:id="@+id/passwordconfrim"
+        android:layout_width="290dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/frame"
+        android:drawableLeft="@drawable/suo"
+        android:drawablePadding="10dp"
+        android:layout_marginTop="2dp"
+        android:hint="确认密码"
+        android:paddingLeft="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#99000000" />
+
+   
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="290dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="35dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/bg_orange_side"
+        android:text="注册"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+</LinearLayout>

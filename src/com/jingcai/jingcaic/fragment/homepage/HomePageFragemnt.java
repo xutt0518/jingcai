@@ -19,6 +19,9 @@ import android.view.View.OnFocusChangeListener;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.jingcai.jingcaic.R;
+import com.jingcai.jingcaic.activity.me.LoginActivity;
+import com.jingcai.jingcaic.activity.me.OrderlistActivity;
+import com.jingcai.jingcaic.activity.me.UserUtil;
 import com.jingcai.jingcaic.activity.type.GoodsInfoActvity;
 import com.jingcai.jingcaic.adapter.GridItemDecoration;
 import com.jingcai.jingcaic.adapter.MyRecyclerAdapter;
@@ -41,6 +44,7 @@ public class HomePageFragemnt extends BaseFragment {
 	private ViewPager contentPager;
 	public View view;
 	public EditText edit;
+	private String userId;
 	@Override
 	public View initView(LayoutInflater inflater) {
 		view=inflater.inflate(R.layout.fragment_homepage, null);
@@ -71,22 +75,39 @@ public class HomePageFragemnt extends BaseFragment {
 	   recyclerview.setAdapter(myrecyclerAdapter);
 	   rolling(recyclerview);
 	   ptr.setPtrHandler(ptrDefaultHandler);
-	   recyclerview.addOnItemTouchListener(
-				new RecyclerViewClickListener(getActivity(),new RecyclerViewClickListener.OnItemClickListener() { 
-					@Override 
-					public void onItemClick(View view, int position) { 
-						if(position==0){
-						}else{
-						//Toast.makeText(getActivity(),"第 "+(position-1)+"条数据",Toast.LENGTH_SHORT).show(); 
-						Intent intent=new Intent(getActivity(),GoodsInfoActvity.class);
-						startActivity(intent);
-						}
-						}
-					@Override
-					public void onItemLongClick(View view, int position) {
-			
-					} 
-				}));
+	   myrecyclerAdapter.setmOnItemClickListener(new MyRecyclerAdapter.OnItemClickListener() {		
+			@Override
+			public void onItemClick(View v, int position) {
+			 switch(v.getId()){
+			 //开始购买
+			 case R.id.Search_food:
+		      
+				 break;
+		     //我的订单
+			 case R.id.Search_outing:
+				 if(isLogin()){
+				  	Intent intent=new Intent(getActivity(),OrderlistActivity.class);
+				  	startActivity(intent);
+				 }else{
+					 Intent intent1=new Intent(getActivity(),LoginActivity.class);
+					 startActivity(intent1);
+				 }
+				 break;
+		     //精菜检测
+			 case R.id.Search_hotel:
+				 break;
+		     //账户充值
+			 case R.id.Search_hotell:
+				 break;	 
+			//菜品详情
+			 case R.id.ly_recycler:
+				 Intent intent4=new Intent(getActivity(),GoodsInfoActvity.class);
+				 startActivity(intent4);
+			 default:
+		         break;
+			 }
+			}
+		});
 	}
 	//下拉刷新
 	private PtrDefaultHandler ptrDefaultHandler=new PtrDefaultHandler() {
@@ -152,6 +173,14 @@ public class HomePageFragemnt extends BaseFragment {
 		
 	}
 	
-
+	//判断用户是否在线
+	public boolean isLogin(){
+		userId=UserUtil.getUsrId(getActivity());
+		if(!"no".equals(userId)){
+			return true;
+		}else {
+			return false;
+		}
+	}
 
 }

@@ -9,8 +9,13 @@ import android.widget.LinearLayout;
 
 import com.jingcai.jingcaic.R;
 import com.jingcai.jingcaic.activity.me.AddressActicity;
+import com.jingcai.jingcaic.activity.me.CouponActivity;
 import com.jingcai.jingcaic.activity.me.FavorActivity;
 import com.jingcai.jingcaic.activity.me.LoginActivity;
+import com.jingcai.jingcaic.activity.me.SetActivity;
+import com.jingcai.jingcaic.activity.me.SuggestActivity;
+import com.jingcai.jingcaic.activity.me.UserUtil;
+import com.jingcai.jingcaic.activity.me.WalletActivity;
 import com.jingcai.jingcaic.fragment.BaseFragment;
 
 public class MeFragment extends BaseFragment implements OnClickListener{
@@ -28,6 +33,7 @@ public class MeFragment extends BaseFragment implements OnClickListener{
     private LinearLayout ly_set;
     private LinearLayout ly_suggest;
     private ImageView imageLogin;
+    private String userId;
 	@Override
 	public View initView(LayoutInflater inflater) {
 		View view=inflater.inflate(R.layout.fragment_my, null);
@@ -51,6 +57,15 @@ public class MeFragment extends BaseFragment implements OnClickListener{
 		imageLogin.setOnClickListener(this);
 		ly_attention.setOnClickListener(this);
 		ly_address.setOnClickListener(this);
+		ly_wallet.setOnClickListener(this);
+		ly_store.setOnClickListener(this);
+		ly_vip.setOnClickListener(this);
+		ly_recommend.setOnClickListener(this);
+		ly_customerservice.setOnClickListener(this);
+		ly_service.setOnClickListener(this);
+		ly_set.setOnClickListener(this);
+		ly_suggest.setOnClickListener(this);
+		
 	}
 	@Override
 	protected void initFindViewById(View view) {
@@ -70,6 +85,12 @@ public class MeFragment extends BaseFragment implements OnClickListener{
 			break;
 		//我的订单界面
 		case(R.id.ly_order):
+			if(isLogin()){
+				
+			}else{
+				Intent intent0=new Intent(getActivity(),LoginActivity.class);
+				startActivity(intent0);
+			}
 			break;
 		//我的收藏界面
 		case(R.id.ly_favor):
@@ -81,6 +102,51 @@ public class MeFragment extends BaseFragment implements OnClickListener{
 			Intent intent2=new Intent(getActivity(),AddressActicity.class);
 		    startActivity(intent2);
 		    break;
+		//我的钱包
+		case(R.id.ly_wallet):
+			Intent intent3=new Intent(getActivity(),WalletActivity.class);
+		    startActivity(intent3);
+			break;
+		//我的优惠券
+		case(R.id.ly_coupon):
+			Intent intent4=new Intent(getActivity(),CouponActivity.class);
+		    startActivity(intent4);
+			break;
+		//积分商城
+		case(R.id.ly_store):
+			break;
+		//会员中心
+		case(R.id.ly_vip):
+			break;
+		//推荐有奖
+		case(R.id.ly_recomment):
+			break;
+		//联系客服
+		case(R.id.ly_customerservice):
+		    break;
+		//服务须知
+		case(R.id.ly_service):
+			break;
+		//设置
+		case(R.id.ly_set):
+			Intent intentset=new Intent(getActivity(),SetActivity.class);
+		    startActivity(intentset);
+			break;
+		//意见反馈
+		case(R.id.ly_suggest):
+			Intent insuggest=new Intent(getActivity(),SuggestActivity.class);
+		    startActivity(insuggest);
+			break;
+		 default:
+			 break;
+		}
+	}
+	public boolean isLogin(){
+		userId=UserUtil.getUsrId(getActivity());
+		if(!"no".equals(userId)){
+			return true;
+		}else{
+			return false;
 		}
 	}
 

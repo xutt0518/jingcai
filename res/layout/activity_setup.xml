@@ -1,0 +1,83 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray"
+    android:orientation="vertical" >
+<!--  
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/tv_setinfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="资料设置"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/mykh" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+      <LinearLayout 
+          android:id="@+id/ly_xiugaimima"
+          android:layout_width="match_parent"
+          android:layout_height="50dp"
+          android:orientation="horizontal"
+          android:background="@color/white">
+          <TextView 
+             android:id="@+id/tv_xiugaimima"
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"             
+             android:textColor="@color/black"
+             android:textSize="15sp"
+             android:text="修改登陆密码" />
+          <View 
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:layout_weight="1"/>
+          <ImageView 
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:src="@drawable/mykh"/>
+      </LinearLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/tv_clean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="清楚缓存"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+</LinearLayout>  
+
+
+
+
+
+
+
+
+

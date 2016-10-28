@@ -19,7 +19,7 @@
         android:layout_height="45dp"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/frame"
-        android:drawableLeft="@drawable/sj"
+        android:drawableLeft="@drawable/zcsj"
         android:drawablePadding="10dp"
         android:hint="请输入手机号"
         android:layout_marginTop="10dp"

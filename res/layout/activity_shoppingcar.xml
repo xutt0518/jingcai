@@ -55,7 +55,7 @@
         android:id="@+id/ly_notlogin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="35dp"
         android:orientation="vertical"
         android:visibility="gone" >
 
@@ -150,6 +150,7 @@
         android:background="@color/shallowgray" />
 
     <LinearLayout
+        android:id="@+id/ly_login2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/white"
@@ -212,7 +213,6 @@
                 android:layout_height="58dp"
                 android:layout_alignParentRight="true"
                 android:background="#ADADAD" >
-
                 <TextView
                     android:id="@+id/text_haicha"
                     android:layout_width="wrap_content"

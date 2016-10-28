@@ -41,6 +41,24 @@
             <activity 
             android:name="com.jingcai.jingcaic.activity.me.AddressActicity"
             ></activity>
+            <activity 
+            android:name="com.jingcai.jingcaic.activity.me.WalletActivity"
+            ></activity>
+            <activity 
+            android:name="com.jingcai.jingcaic.activity.me.WalletChongzhiActivity"
+            ></activity>
+            <activity 
+            android:name="com.jingcai.jingcaic.activity.me.WalletInfoActivity"
+            ></activity>
+           <activity 
+            android:name="com.jingcai.jingcaic.activity.me.CouponActivity"
+            ></activity>
+           <activity 
+            android:name="com.jingcai.jingcaic.activity.me.SetActivity"
+            ></activity>
+           <activity 
+            android:name="com.jingcai.jingcaic.activity.me.SuggestActivity"
+            ></activity>
     </application>
 
 </manifest>

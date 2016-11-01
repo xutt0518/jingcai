@@ -59,6 +59,19 @@
            <activity 
             android:name="com.jingcai.jingcaic.activity.me.SuggestActivity"
             ></activity>
-    </application>
+           <activity 
+            android:name="com.jingcai.jingcaic.activity.me.ServiceActivity"
+            ></activity>
+           <activity 
+            android:name="com.jingcai.jingcaic.activity.me.TiaokuanActivity"
+            ></activity>
+           <activity 
+            android:name="com.jingcai.jingcaic.activity.me.ShouhouActivity"
+            ></activity>
+           <activity 
+            android:name="com.jingcai.jingcaic.activity.me.AboutusActivity"
+            ></activity>
+
+           </application>
 
 </manifest>

@@ -1,4 +1,5 @@
 package com.jingcai.jingcaic.activity;
+
 import com.jingcai.jingcaic.R;
 import com.jingcai.jingcaic.fragment.homepage.AutoScrollPagerFragment;
 import com.jingcai.jingcaic.fragment.homepage.TextFragment;

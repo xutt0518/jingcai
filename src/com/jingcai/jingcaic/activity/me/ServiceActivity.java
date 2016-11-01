@@ -1,5 +1,6 @@
 package com.jingcai.jingcaic.activity.me;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,7 +17,7 @@ public class ServiceActivity extends BaseActivity implements OnClickListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		isTemplate=true;
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_setup);
+		setContentView(R.layout.activity_service);
 		titleView.setText("·þÎñÐëÖª");
 		ly_tk=(LinearLayout)findViewById(R.id.ly_tk);
 		ly_sh=(LinearLayout)findViewById(R.id.ly_sh);
@@ -29,11 +30,16 @@ public class ServiceActivity extends BaseActivity implements OnClickListener{
 	public void onClick(View v) {
 		switch(v.getId()){
 		case R.id.ly_tk:
-			 
+			 Intent tk=new Intent(ServiceActivity.this,TiaokuanActivity.class);
+			 startActivity(tk);
 			break;
 		case R.id.ly_sh:
+			Intent sh=new Intent(ServiceActivity.this,ShouhouActivity.class);
+			startActivity(sh);
 			break;
 		case R.id.ly_aboutus:
+			Intent aboutus=new Intent(ServiceActivity.this,AboutusActivity.class);
+			startActivity(aboutus);
 			break;
 		default:
 			break;

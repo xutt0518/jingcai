@@ -1,5 +1,7 @@
 package com.jingcai.jingcaic.fragment.me;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,7 @@ import com.jingcai.jingcaic.activity.me.AddressActicity;
 import com.jingcai.jingcaic.activity.me.CouponActivity;
 import com.jingcai.jingcaic.activity.me.FavorActivity;
 import com.jingcai.jingcaic.activity.me.LoginActivity;
+import com.jingcai.jingcaic.activity.me.ServiceActivity;
 import com.jingcai.jingcaic.activity.me.SetActivity;
 import com.jingcai.jingcaic.activity.me.SuggestActivity;
 import com.jingcai.jingcaic.activity.me.UserUtil;
@@ -123,9 +126,21 @@ public class MeFragment extends BaseFragment implements OnClickListener{
 			break;
 		//联系客服
 		case(R.id.ly_customerservice):
+			AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+		    builder.setMessage("拨打"+getString(R.string.phone)+"?");
+		    builder.setPositiveButton("拨打", new DialogInterface.OnClickListener() {				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+                  
+				}
+			});
+		    builder.setNegativeButton("取消", null);
+		    builder.show();
 		    break;
 		//服务须知
 		case(R.id.ly_service):
+			Intent service=new Intent(getActivity(),ServiceActivity.class);
+		    startActivity(service);
 			break;
 		//设置
 		case(R.id.ly_set):

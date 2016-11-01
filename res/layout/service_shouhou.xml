@@ -4,4 +4,10 @@
     android:layout_height="match_parent"
     android:background="@color/light_gray"
     android:orientation="vertical" >
+     <WebView
+            android:id="@+id/webview_sh"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scrollbars="none"
+            android:background="@null" />
 </LinearLayout>

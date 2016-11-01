@@ -52,12 +52,10 @@
         android:layout_height="100dp"
         android:background="@color/white"
         android:orientation="vertical" >
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:orientation="horizontal" >
-
             <RadioButton
                 android:id="@+id/rbtv_price1"
                 android:layout_width="0dp"

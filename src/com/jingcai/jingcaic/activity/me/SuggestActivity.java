@@ -15,7 +15,7 @@ public class SuggestActivity extends BaseActivity implements OnClickListener{
 		// TODO Auto-generated method stub
 		isTemplate=true;
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_login);
+		setContentView(R.layout.activity_suggets);
 		titleView.setText("意见反馈");
 		templateTextViewRight.setVisibility(View.VISIBLE);
 		templateTextViewRight.setText("提交");

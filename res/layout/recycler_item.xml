@@ -15,12 +15,21 @@
             android:paddingBottom="5dp"
             android:paddingLeft="5dp"
             android:paddingRight="5dp" >
-
-            <ImageView
-                android:id="@+id/imge_home"
+			
+            <RelativeLayout 
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/cm" />
+                android:layout_height="80dp"
+                >
+                 <ImageView
+                android:id="@+id/imge_home"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:background="@drawable/cm" 
+                android:layout_centerInParent="true"
+                />
+                
+            </RelativeLayout>
+           
         </LinearLayout>
 
         <LinearLayout
@@ -51,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="惊爆价"
+                android:text="特价"
                 android:textColor="@color/orange"
                 android:textSize="12sp" />
 

@@ -17,8 +17,8 @@ import android.widget.TextView;
 
 import com.jingcai.jingcaic.R;
 import com.jingcai.jingcaic.activity.me.LoginActivity;
-import com.jingcai.jingcaic.activity.me.UserUtil;
 import com.jingcai.jingcaic.fragment.BaseFragment;
+import com.jingcai.jingcaic.util.UserUtil;
 
 public class ShoppingCatFragment extends BaseFragment implements OnClickListener {
     private ListView listview;
@@ -29,50 +29,70 @@ public class ShoppingCatFragment extends BaseFragment implements OnClickListener
     private LinearLayout ly_login2;
     private Button bt_notlogin;
     private String userId;
+    
+
+	/**
+	 * 选择所有
+	 */
+	private Button btnSelectAll;
+	
+    
 	@Override
 	public View initView(LayoutInflater inflater) {
 		
 		View view=inflater.inflate(R.layout.activity_shoppingcar, null);
-		init(view);
 		return view;
 	}
-    public void init(View view){
-    	listview=(ListView)view.findViewById(R.id.list_gwc);
+	@Override
+	protected void initFindViewById(View view) {
+	 	listview=(ListView)view.findViewById(R.id.list_gwc);
     	ly_notlogin=(LinearLayout)view.findViewById(R.id.ly_notlogin);
     	ly_login1=(LinearLayout)view.findViewById(R.id.ly_login1);
     	ly_login2=(LinearLayout)view.findViewById(R.id.ly_login2);
     	bt_notlogin=(Button)view.findViewById(R.id.bt_notlogin);
-    	bt_notlogin.setOnClickListener(this);
-    	carAdapter=new CarAdapter(cardata,getActivity());
+	}
+	@Override
+	protected void initData(View view) {
     	cardata=new ArrayList<String>();
     	for(int i=0;i<9;i++){
     		String data="西红柿";
     		cardata.add(data);
-    	}   	
-    	if(isLogin()){
-    		if(cardata.size()>0){
-    			ly_login2.setVisibility(View.VISIBLE);
-    			ly_login1.setVisibility(View.GONE);
-    			ly_notlogin.setVisibility(View.GONE);
-    			carAdapter=new CarAdapter(cardata,getActivity());
-    	    	listview.setAdapter(carAdapter);
-    		}else{
-    			ly_login2.setVisibility(View.GONE);
-    			ly_login1.setVisibility(View.VISIBLE);
-    			ly_notlogin.setVisibility(View.GONE);
-    		}
-    	}else{
-    		ly_login2.setVisibility(View.GONE);
-			ly_login1.setVisibility(View.GONE);
-			ly_notlogin.setVisibility(View.VISIBLE);
-    	}
-    }
-	@Override
-	protected void initFindViewById(View view) {
-		// TODO Auto-generated method stub
+    	}  
+    	//下方全选框
+    	ly_login2.setVisibility(View.VISIBLE);
+    	//购物车为空
+		ly_login1.setVisibility(View.GONE);
+		//购物车未登录
+	    ly_notlogin.setVisibility(View.GONE);
+		carAdapter=new CarAdapter(cardata,getActivity());
+     	listview.setAdapter(carAdapter);
+    
+//    	if(isLogin()){
+//    		if(cardata.size()>0){
+//    			ly_login2.setVisibility(View.VISIBLE);
+//    			ly_login1.setVisibility(View.GONE);
+//    			ly_notlogin.setVisibility(View.GONE);
+//    			carAdapter=new CarAdapter(cardata,getActivity());
+//  	    	listview.setAdapter(carAdapter);
+//    		}else{
+//    			ly_login2.setVisibility(View.GONE);
+//    			ly_login1.setVisibility(View.VISIBLE);
+//    			ly_notlogin.setVisibility(View.GONE);
+//    		}
+//    	}else{
+//    		ly_login2.setVisibility(View.GONE);
+//			ly_login1.setVisibility(View.GONE);
+//			ly_notlogin.setVisibility(View.VISIBLE);
+//    	}
+    
 		
 	}
-
+	@Override
+	protected void setLinstener() {
+		// TODO Auto-generated method stub
+		super.setLinstener();
+		bt_notlogin.setOnClickListener(this);
+	}
 	@Override
 	public void initData() {
 		// TODO Auto-generated method stub
@@ -130,4 +150,5 @@ public class ShoppingCatFragment extends BaseFragment implements OnClickListener
     	break;
      }
 	}
+	
 }

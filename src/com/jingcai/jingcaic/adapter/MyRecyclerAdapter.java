@@ -56,15 +56,18 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
 	public int getItemCount() {
 		return  mHeaderView == null ? list.size() : list.size() + 1;
 	}
-
+	/**
+	 * 把现在的数据绑定到原有的viewHolder之上
+	 */
 	@Override
-	public void onBindViewHolder(final MyViewHolder arg0, final int arg1) {
-		//arg0.textView.setText(list.get(arg1));
-		if(getItemViewType(arg1) == TYPE_HEADER) return;
+	public void onBindViewHolder(final MyViewHolder holder, final int position) {
+		//holder.textView.setText(list.get(arg1));
+	
+		if(getItemViewType(position) == TYPE_HEADER) return;
 
-        final int pos = getRealPosition(arg0);
+        final int pos = getRealPosition(holder);
         final String data = list.get(pos);
-        arg0.titlehome.setText(data);  
+        holder.titlehome.setText(data);  
         Search_food=(LinearLayout)mHeaderView.findViewById(R.id.Search_food);
         Search_outing=(LinearLayout)mHeaderView.findViewById(R.id.Search_outing);
         Search_hotel=(LinearLayout)mHeaderView.findViewById(R.id.Search_hotel);
@@ -73,31 +76,31 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
         	Search_food.setOnClickListener(new View.OnClickListener() {		
     			@Override
     			public void onClick(View v) {
-    		    mOnItemClickListener.onItemClick(Search_food, arg1);    		    
+    		    mOnItemClickListener.onItemClick(Search_food, position);    		    
     			}
     		});
         	Search_outing.setOnClickListener(new View.OnClickListener() {		
     			@Override
     			public void onClick(View v) {
-    		    mOnItemClickListener.onItemClick(Search_outing, arg1);
+    		    mOnItemClickListener.onItemClick(Search_outing, position);
     			}
     		});
         	Search_hotel.setOnClickListener(new View.OnClickListener() {		
     			@Override
     			public void onClick(View v) {
-    		    mOnItemClickListener.onItemClick(Search_hotel, arg1);
+    		    mOnItemClickListener.onItemClick(Search_hotel, position);
     			}
     		});
         	Search_hotell.setOnClickListener(new View.OnClickListener() {		
     			@Override
     			public void onClick(View v) {
-    		    mOnItemClickListener.onItemClick(Search_hotell, arg1);
+    		    mOnItemClickListener.onItemClick(Search_hotell, position);
     			}
     		});
-        	arg0.recycler.setOnClickListener(new View.OnClickListener() {		
+        	holder.recycler.setOnClickListener(new View.OnClickListener() {		
     			@Override
     			public void onClick(View v) {
-    		    mOnItemClickListener.onItemClick(arg0.recycler, arg1);
+    		    mOnItemClickListener.onItemClick(holder.recycler, position);
     			}
     		});
         }
@@ -112,11 +115,13 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
 		if(position==0) return TYPE_HEADER;
 		return TYPE_NORMAL;
 	}
-    
+	/**
+	 * 相当于在listview中，onCreatView为空时，需要去创建viewHolder
+	 */
 	@Override
-	public MyViewHolder onCreateViewHolder(ViewGroup arg0, int arg1) {
-		if(mHeaderView != null && arg1 == TYPE_HEADER) return new MyViewHolder(mHeaderView);
-		View view=LayoutInflater.from(context).inflate(R.layout.recycler_item, arg0, false);
+	public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+		if(mHeaderView != null && viewType == TYPE_HEADER) return new MyViewHolder(mHeaderView);
+		View view=LayoutInflater.from(context).inflate(R.layout.recycler_item, parent, false);
 		return new MyViewHolder(view);
 	}
 	public static class MyViewHolder extends RecyclerView.ViewHolder{
@@ -124,13 +129,10 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
 		private TextView titlehome;
 		private ImageView imagehome;
 		private LinearLayout recycler;
-		public MyViewHolder(View arg0) {
-			super(arg0);
-		//	if(arg0 == mHeaderView) return;
-//			jiagehome=(TextView)arg0.findViewById(R.id.jiage_home);
-     		titlehome=(TextView)arg0.findViewById(R.id.jiage_home);
-//			imagehome=(ImageView)arg0.findViewById(R.id.imge_home);
-     		recycler=(LinearLayout)arg0.findViewById(R.id.ly_recycler);
+		public MyViewHolder(View itemView) {
+			super(itemView);
+     		titlehome=(TextView)itemView.findViewById(R.id.jiage_home);
+     		recycler=(LinearLayout)itemView.findViewById(R.id.ly_recycler);
 		}
 	}
 	

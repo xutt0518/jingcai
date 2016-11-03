@@ -26,4 +26,10 @@ public class TypeFragment extends BaseFragment{
 		
 	}
 
+	@Override
+	protected void initData(View view) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -1,20 +1,14 @@
 package com.jingcai.jingcaic.activity;
-
 import com.jingcai.jingcaic.R;
-import com.jingcai.jingcaic.fragment.homepage.AutoScrollPagerFragment;
-import com.jingcai.jingcaic.fragment.homepage.TextFragment;
 import com.jingcai.jingcaic.util.IntentUtil;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+
 import android.view.Window;
 
+@SuppressLint("NewApi")
 public class MainActivity extends FragmentActivity {
 	Handler handler = new Handler();	 
 	@Override

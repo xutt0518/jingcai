@@ -29,10 +29,11 @@ public abstract class BaseFragment extends Fragment{
         mActivity = getActivity();  
         View view = initView(inflater);  
         initFindViewById(view);  
-  
+        initData(view);
         return view;  
     }  
-    /** 
+  
+	/** 
      * 当Activity初始化之后可以在这里进行一些数据的初始化操作 
      */  
     @Override  
@@ -59,7 +60,11 @@ public abstract class BaseFragment extends Fragment{
      * 初始化控件 
      */  
     protected abstract void initFindViewById(View view);  
-  
+    /**
+     * 
+     *页面加载数据
+     */
+    protected abstract void initData(View view) ;
     /** 
      * 子类在此方法中实现数据的初始化 
      */  

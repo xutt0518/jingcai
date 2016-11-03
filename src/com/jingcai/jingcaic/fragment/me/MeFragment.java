@@ -8,18 +8,20 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.jingcai.jingcaic.R;
 import com.jingcai.jingcaic.activity.me.AddressActicity;
 import com.jingcai.jingcaic.activity.me.CouponActivity;
 import com.jingcai.jingcaic.activity.me.FavorActivity;
 import com.jingcai.jingcaic.activity.me.LoginActivity;
+import com.jingcai.jingcaic.activity.me.MyDataActivity;
 import com.jingcai.jingcaic.activity.me.ServiceActivity;
 import com.jingcai.jingcaic.activity.me.SetActivity;
 import com.jingcai.jingcaic.activity.me.SuggestActivity;
-import com.jingcai.jingcaic.activity.me.UserUtil;
 import com.jingcai.jingcaic.activity.me.WalletActivity;
 import com.jingcai.jingcaic.fragment.BaseFragment;
+import com.jingcai.jingcaic.util.UserUtil;
 
 public class MeFragment extends BaseFragment implements OnClickListener{
 	
@@ -37,6 +39,7 @@ public class MeFragment extends BaseFragment implements OnClickListener{
     private LinearLayout ly_suggest;
     private ImageView imageLogin;
     private String userId;
+    private TextView tvLogin;
 	@Override
 	public View initView(LayoutInflater inflater) {
 		View view=inflater.inflate(R.layout.fragment_my, null);
@@ -44,6 +47,7 @@ public class MeFragment extends BaseFragment implements OnClickListener{
 		return view;
 	}
 	public void init(View view){
+		tvLogin=(TextView) view.findViewById(R.id.text_login);
 		imageLogin=(ImageView)view.findViewById(R.id.img_login);
 		ly_myorder=(LinearLayout)view.findViewById(R.id.ly_order);
 		ly_attention=(LinearLayout)view.findViewById(R.id.ly_favor);
@@ -57,6 +61,7 @@ public class MeFragment extends BaseFragment implements OnClickListener{
 		ly_service=(LinearLayout)view.findViewById(R.id.ly_service);
 		ly_set=(LinearLayout)view.findViewById(R.id.ly_set);
 		ly_suggest=(LinearLayout)view.findViewById(R.id.ly_suggest);
+		tvLogin.setOnClickListener(this);
 		imageLogin.setOnClickListener(this);
 		ly_attention.setOnClickListener(this);
 		ly_address.setOnClickListener(this);
@@ -81,9 +86,14 @@ public class MeFragment extends BaseFragment implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){
-		//我的登陆界面
+		//立即登录页面
+		case (R.id.text_login):
+			Intent intent5=new Intent(getActivity(),LoginActivity.class);
+			startActivity(intent5);
+			break;
+		//个人资料界面
 		case(R.id.img_login):
-			Intent intent=new Intent(getActivity(),LoginActivity.class);
+			Intent intent=new Intent(getActivity(),MyDataActivity.class);
 		    startActivity(intent);
 			break;
 		//我的订单界面
@@ -163,6 +173,11 @@ public class MeFragment extends BaseFragment implements OnClickListener{
 		}else{
 			return false;
 		}
+	}
+	@Override
+	protected void initData(View view) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

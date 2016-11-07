@@ -10,11 +10,15 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.jingcai.jingcac.rolling.CycleShowView;
 import com.jingcai.jingcac.rolling.CycleShowView.MyPageOnClickItemListener;
 import com.jingcai.jingcaic.R;
+import com.jingcai.jingcaic.activity.homepage.SearchActivity;
 import com.jingcai.jingcaic.activity.me.LoginActivity;
 import com.jingcai.jingcaic.activity.me.OrderlistActivity;
 import com.jingcai.jingcaic.activity.type.GoodsInfoActvity;
@@ -47,63 +51,10 @@ public class HomePageFragemnt extends BaseFragment {
 			String data="草莓";
 			list.add(data);
 		}
-		init();
+	
 		return view;
 	}
-	public void init(){
-	   recyclerview=(RecyclerView)view.findViewById(R.id.recyclerview);
-	   ptr=(PtrClassicFrameLayout)view.findViewById(R.id.ptr);
-	   myrecyclerAdapter=new MyRecyclerAdapter(list,getActivity());
-	   //头布局宽度占满三列
-	   final GridLayoutManager manager = new GridLayoutManager(getActivity(), 3);
-	   manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-			  @Override
-			  public int getSpanSize(int position) {
-			    return myrecyclerAdapter.isHeader(position) ? manager.getSpanCount() : 1;
-			  }
-			});
-	   recyclerview.setLayoutManager(manager);
-	   recyclerview.setItemAnimator(new DefaultItemAnimator());
-	   recyclerview.addItemDecoration(new GridItemDecoration(getActivity(), true));
-	   recyclerview.setAdapter(myrecyclerAdapter);
-	   rolling(recyclerview);
-	   //设置下拉刷新
-	   ptr.setPtrHandler(ptrDefaultHandler);	
 
-	   MyRecyclerAdapter.setmOnItemClickListener(new MyRecyclerAdapter.OnItemClickListener() {		
-			@Override
-			public void onItemClick(View v, int position) {
-			 switch(v.getId()){
-			 //开始购买
-			 case R.id.Search_food:
-		      
-				 break;
-		     //我的订单
-			 case R.id.Search_outing:
-				 if(isLogin()){
-				  	Intent intent=new Intent(getActivity(),OrderlistActivity.class);
-				  	startActivity(intent);
-				 }else{
-					 Intent intent1=new Intent(getActivity(),LoginActivity.class);
-					 startActivity(intent1);
-				 }
-				 break;
-		     //精菜检测
-			 case R.id.Search_hotel:
-				 break;
-		     //账户充值
-			 case R.id.Search_hotell:
-				 break;	 
-			//菜品详情
-			 case R.id.ly_recycler:
-				 Intent intent4=new Intent(getActivity(),GoodsInfoActvity.class);
-				 startActivity(intent4);
-			 default:
-		         break;
-			 }
-			}
-		});
-	}
 	//下拉刷新
 	private PtrDefaultHandler ptrDefaultHandler=new PtrDefaultHandler() {
 		@Override
@@ -128,15 +79,59 @@ public class HomePageFragemnt extends BaseFragment {
 		//使edit失去焦点
 		edit.clearFocus();
 		edit.setFocusable(false);
+	
 
 	}
-    
-	@Override
-	public void initData() {
-		// TODO Auto-generated method stub
-		
-	}
-	
+    @Override
+    protected void setLinstener() {
+    	// TODO Auto-generated method stub
+    	super.setLinstener();
+    	  //模块选择
+    	  MyRecyclerAdapter.setmOnItemClickListener(new MyRecyclerAdapter.OnItemClickListener() {		
+  			@Override
+  			public void onItemClick(View v, int position) {
+  			 switch(v.getId()){
+  			 //开始购买
+  			 case R.id.Search_food:
+  		      
+  				 break;
+  		     //我的订单
+  			 case R.id.Search_outing:
+  				 if(isLogin()){
+  				  	Intent intent=new Intent(getActivity(),OrderlistActivity.class);
+  				  	startActivity(intent);
+  				 }else{
+  					 Intent intent1=new Intent(getActivity(),LoginActivity.class);
+  					 startActivity(intent1);
+  				 }
+  				 break;
+  		     //精菜检测
+  			 case R.id.Search_hotel:
+  				 break;
+  		     //账户充值
+  			 case R.id.Search_hotell:
+  				 break;	 
+  			//菜品详情
+  			 case R.id.ly_recycler:
+  				 Intent intent4=new Intent(getActivity(),GoodsInfoActvity.class);
+  				 startActivity(intent4);
+  			 default:
+  		         break;
+  			 }
+  			}
+  		});
+    	  
+    	  //搜索
+    	  edit.setOnClickListener(new OnClickListener() {		
+			@Override
+			public void onClick(View arg0) {
+				Intent intent=new Intent(context,SearchActivity.class);
+				startActivity(intent);
+			}
+		});
+    	
+    }
+
 	
 	//五图滚动广告
 		private void rolling(RecyclerView view) {
@@ -168,6 +163,28 @@ public class HomePageFragemnt extends BaseFragment {
 	}
 	@Override
 	protected void initData(View view) {
+		// TODO Auto-generated method stub
+		   recyclerview=(RecyclerView)view.findViewById(R.id.recyclerview);
+		   ptr=(PtrClassicFrameLayout)view.findViewById(R.id.ptr);
+		   myrecyclerAdapter=new MyRecyclerAdapter(list,getActivity());
+		   //头布局宽度占满三列
+		   final GridLayoutManager manager = new GridLayoutManager(getActivity(), 3);
+		   manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+				  @Override
+				  public int getSpanSize(int position) {
+				    return myrecyclerAdapter.isHeader(position) ? manager.getSpanCount() : 1;
+				  }
+				});
+		   recyclerview.setLayoutManager(manager);
+		   recyclerview.setItemAnimator(new DefaultItemAnimator());
+		   recyclerview.addItemDecoration(new GridItemDecoration(getActivity(), true));
+		   recyclerview.setAdapter(myrecyclerAdapter);
+		   rolling(recyclerview);
+		   //设置下拉刷新
+		   ptr.setPtrHandler(ptrDefaultHandler);	
+	}
+	@Override
+	public void initData() {
 		// TODO Auto-generated method stub
 		
 	}

@@ -103,9 +103,13 @@ public class CycleShowView extends FrameLayout {
 		for (int i = 0; i < imageUrls.length; i++) {
 			ImageView mImageView = new ImageView(context);
 			mImageView.setTag(imageUrls[i]);
-			
+		
 			if(i== 0)
+				mImageView.setBackgroundResource(R.drawable.banner1);
+			if(i==1)
 				mImageView.setBackgroundResource(R.drawable.banner2);
+			if(i==2)	
+				mImageView.setBackgroundResource(R.drawable.banner3);
 			
 			mImageView.setScaleType(ScaleType.FIT_XY);
 			imageViewsList.add(mImageView);
@@ -246,6 +250,7 @@ public class CycleShowView extends FrameLayout {
 				}else{
 					((View)dotViewsList.get(i)).setBackgroundResource(R.drawable.ic_focus);
 				}
+				
 			}
 		}
     	

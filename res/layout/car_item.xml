@@ -193,10 +193,10 @@
     android:background="@color/white"
     >
         
-    <LinearLayout 
+   <LinearLayout 
         android:layout_marginLeft="10dp"
         android:layout_marginRight="5dp"
-        android:layout_width="20dp"
+        android:layout_width="25dp"
         android:layout_height="80dp"
         android:orientation="vertical"
         >
@@ -205,15 +205,12 @@
         	    android:layout_width="wrap_content"
         	    android:layout_height="wrap_content"
         	    />
-        
-            <RadioButton
-                android:id="@+id/rb_dx"
-                android:layout_width="20dp"
+		       <CheckBox
+		       android:id="@+id/cbCheckBox"
+		       android:layout_width="25dp"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:button="@drawable/coupon_selector"
-                android:checked="true"
-                android:gravity="center_vertical" />
+		       android:button="@drawable/checkbox_checked_style"
+		       android:focusable="false" />
             <TextView 
         	    android:layout_weight="1"
         	    android:layout_width="wrap_content"
@@ -344,6 +341,7 @@
                 android:textColor="@color/orange"
                 />
             <TextView 
+                android:id="@+id/tv_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -373,7 +371,7 @@
          	    android:layout_width="20dp"
          	    android:layout_height="20dp"
          	    android:gravity="center"
-         	    android:background="@drawable/hbk"
+         	    android:background="@drawable/jia"
          	    android:layout_centerVertical="true"
          	    />
                  <TextView
@@ -392,7 +390,7 @@
 	        	android:gravity="center"
 	       	    android:layout_width="20dp"
 	       	    android:layout_height="20dp"
-	       	    android:background="@drawable/hbk"
+	       	    android:background="@drawable/jian"
 	       	    android:layout_centerVertical="true"
        	   		 />
                  

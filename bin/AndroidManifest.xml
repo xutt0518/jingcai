@@ -74,6 +74,10 @@
 			<activity 
 			android:name="com.jingcai.jingcaic.activity.me.MyDataActivity"    
 			    ></activity>
+			<activity 
+			android:name="com.jingcai.jingcaic.activity.homepage.SearchActivity"
+			    ></activity>
+			
            </application>
 
 </manifest>

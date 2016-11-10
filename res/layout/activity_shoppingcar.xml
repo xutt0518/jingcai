@@ -183,15 +183,24 @@
 
             <TextView
                 android:id="@+id/text_price"
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/text_hesuan"
-                android:text="8.5元"
+                android:text="0"
                 android:textColor="#E68052"
                 android:textSize="17sp" 
                 android:layout_alignBottom="@id/text_hesuan"
                 />
-
+			<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/text_price"
+                android:text="元"
+                android:textColor="#E68052"
+                android:textSize="17sp" 
+                android:layout_alignBottom="@id/text_hesuan"
+                />	
+            
             <LinearLayout
                 android:id="@+id/ly_hiacha"
                 android:layout_width="wrap_content"

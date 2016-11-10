@@ -4,6 +4,7 @@ import com.jingcai.jingcaic.fragment.BaseFragment;
 import com.jingcai.jingcaic.fragment.homepage.HomePageFragemnt;
 import com.jingcai.jingcaic.fragment.me.MeFragment;
 import com.jingcai.jingcaic.fragment.shoppingcat.ShoppingCatFragment;
+import com.jingcai.jingcaic.fragment.shoppingcat.ShoppingCatFragment;
 import com.jingcai.jingcaic.fragment.type.TypeFragment;
 
 import android.os.Bundle;

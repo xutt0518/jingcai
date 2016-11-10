@@ -30,6 +30,7 @@ import com.jingcai.jingcaic.util.UserUtil;
  * ºÎÐ¢Ìì£ºÊ×Ò³
  */
 public class HomePageFragemnt extends BaseFragment {
+	
 	private RecyclerView recyclerview;
 	private PtrClassicFrameLayout ptr;
 	private MyRecyclerAdapter myrecyclerAdapter;
@@ -51,7 +52,6 @@ public class HomePageFragemnt extends BaseFragment {
 			String data="²ÝÝ®";
 			list.add(data);
 		}
-	
 		return view;
 	}
 

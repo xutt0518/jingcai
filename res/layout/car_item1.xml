@@ -193,7 +193,7 @@
     android:background="@color/white"
     >
         
-   <LinearLayout 
+  	<LinearLayout 
         android:layout_marginLeft="10dp"
         android:layout_marginRight="5dp"
         android:layout_width="25dp"
@@ -205,6 +205,7 @@
         	    android:layout_width="wrap_content"
         	    android:layout_height="wrap_content"
         	    />
+  
 		       <CheckBox
 		       android:id="@+id/cbCheckBox"
 		       android:layout_width="25dp"

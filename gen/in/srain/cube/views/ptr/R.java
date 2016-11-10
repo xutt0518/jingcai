@@ -29,8 +29,8 @@ public final class R {
 		public static final int ptr_classic_header_rotate_view_progressbar = 0x7f090053;
 	}
 	public static final class layout {
-		public static final int cube_ptr_classic_default_header = 0x7f030014;
-		public static final int cube_ptr_simple_loading = 0x7f030015;
+		public static final int cube_ptr_classic_default_header = 0x7f030015;
+		public static final int cube_ptr_simple_loading = 0x7f030016;
 	}
 	public static final class string {
 		public static final int cube_ptr_hours_ago = 0x7f040008;

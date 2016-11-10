@@ -2,148 +2,154 @@ package com.jingcai.jingcaic.fragment.shoppingcat;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import android.content.Context;
-import android.content.Intent;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import com.jingcai.jingcaic.R;
-import com.jingcai.jingcaic.activity.me.LoginActivity;
 import com.jingcai.jingcaic.adapter.ShoppingCartAdapter;
-import com.jingcai.jingcaic.entity.GoodsEntity;
+import com.jingcai.jingcaic.adapter.ShoppingCartAdapter.onItemClickSelectLinstner;
+import com.jingcai.jingcaic.entity.GoodsEntity1;
 import com.jingcai.jingcaic.fragment.BaseFragment;
-import com.jingcai.jingcaic.util.UserUtil;
-public class ShoppingCatFragment extends BaseFragment implements OnClickListener {
+
+public class ShoppingCatFragment extends BaseFragment implements onItemClickSelectLinstner{
 	
-    private ListView listview;
-    private LinearLayout ly_notlogin;
-    private LinearLayout ly_login1;
-    private LinearLayout ly_login2;
-    private Button bt_notlogin;
-    private String userId;
-	/**
-	 * 确定选择所有
-	 */
+	private ListView listview;
+	//全选
 	private Button btnSelectAll;
-	private List<String> cardata;
+	private List<GoodsEntity1>items;
 	private ShoppingCartAdapter shoppingCartAdapter;
-	
-   // private private List<Item> items;
+	//总价
+	private TextView text_price;
+	//总价格
+	private static int allMoney;
+	//单个价格
+	private static int oneMoney;
+	//判断是否全选(默认false)
+	private static boolean quanxuan;
 	@Override
 	public View initView(LayoutInflater inflater) {
-		
 		View view=inflater.inflate(R.layout.activity_shoppingcar, null);
 		return view;
 	}
+
 	@Override
 	protected void initFindViewById(View view) {
+		listview=(ListView)view.findViewById(R.id.list_gwc);
 		btnSelectAll=(Button) view.findViewById(R.id.all_collect);
-	 	listview=(ListView)view.findViewById(R.id.list_gwc);
-    	ly_notlogin=(LinearLayout)view.findViewById(R.id.ly_notlogin);
-    	ly_login1=(LinearLayout)view.findViewById(R.id.ly_login1);
-    	ly_login2=(LinearLayout)view.findViewById(R.id.ly_login2);
-    	bt_notlogin=(Button)view.findViewById(R.id.bt_notlogin);
-	}
-	@Override
-	protected void initData(View view) {
+		text_price=(TextView) view.findViewById(R.id.text_price);
 	
-		// 模拟假数据
-		List<GoodsEntity> demoDatas = new ArrayList<GoodsEntity>();
-		demoDatas.add(new GoodsEntity(null, "西红柿", null, null, null, null, "99", null, null, null, null, true));
-		demoDatas.add(new GoodsEntity(null, "胡萝卜", null, null, null, null, "69", null, null, null, null, true));
-		demoDatas.add(new GoodsEntity(null, "土豆", null, null, null, null, "59", null, null, null, null, true));
-		demoDatas.add(new GoodsEntity(null, "南瓜", null, null, null, null, "49", null, null, null, null, true));
-		demoDatas.add(new GoodsEntity(null, "西红柿", null, null, null, null, "39", null, null, null, null, true));
-		demoDatas.add(new GoodsEntity(null, "土豆", null, null, null, null, "29", null, null, null, null, true));
-		demoDatas.add(new GoodsEntity(null, "西红柿", null, null, null, null, "19", null, null, null, null, true));
-		demoDatas.add(new GoodsEntity(null, "马铃薯", null, null, null, null, "89", null, null, null, null, true));
-		
-		shoppingCartAdapter = new ShoppingCartAdapter(context, demoDatas);
-
-		listview.setAdapter(shoppingCartAdapter);
-		
-		
-//    	//下方全选框
-//    	ly_login2.setVisibility(View.VISIBLE);
-//    	//购物车为空
-//		ly_login1.setVisibility(View.GONE);
-//		//购物车未登录
-//	    ly_notlogin.setVisibility(View.GONE);	    
-     	
-     	
-//    	if(isLogin()){
-//    		if(cardata.size()>0){
-//    			ly_login2.setVisibility(View.VISIBLE);
-//    			ly_login1.setVisibility(View.GONE);
-//    			ly_notlogin.setVisibility(View.GONE);
-//    			carAdapter=new CarAdapter(cardata,getActivity());
-//  	    	listview.setAdapter(carAdapter);
-//    		}else{
-//    			ly_login2.setVisibility(View.GONE);
-//    			ly_login1.setVisibility(View.VISIBLE);
-//    			ly_notlogin.setVisibility(View.GONE);
-//    		}
-//    	}else{
-//    		ly_login2.setVisibility(View.GONE);
-//			ly_login1.setVisibility(View.GONE);
-//			ly_notlogin.setVisibility(View.VISIBLE);
-//    	}
-    
-		
-	}
-	@Override
-	protected void setLinstener() {
-		super.setLinstener();
-		bt_notlogin.setOnClickListener(this);
-		btnSelectAll.setOnClickListener(this);
-	}
-	@Override
-	public void initData() {
-		
-	}
-	//点击全选
-	@Override
-	public void onClick(View v) {
-		if (v == btnSelectAll){
-			if (btnSelectAll.getText().toString().trim().equals("全选")) {
-
-				// 所有项目全部选中
-				shoppingCartAdapter.configCheckMap(true);
-
-				shoppingCartAdapter.notifyDataSetChanged();
-
-				btnSelectAll.setText("全不选");
-				
-				btnSelectAll.setSelected(true);
-//				
-//				for(int i=0;i<listview.getChildCount();i++){
-//					LinearLayout layout = (LinearLayout)listview.getChildAt(i);
-//					TextView textView=(TextView) layout.findViewById(R.id.tv_amount);
-//		
-//				}
-//			
-				
-			} else {
-
-				// 所有项目全部不选中
-				shoppingCartAdapter.configCheckMap(false);
-
-				shoppingCartAdapter.notifyDataSetChanged();
-
-				btnSelectAll.setText("全选");
-			
-				btnSelectAll.setSelected(false);
-			}
+	try {
+			oneMoney=Integer.parseInt(text_price.getText().toString());
+			allMoney=Integer.parseInt(text_price.getText().toString());
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		
 	}
+
+	@Override
+	protected void initData(View view) {
+		items=new ArrayList<GoodsEntity1>();
+		items.add(new GoodsEntity1(null, "西红柿", null, null, null, 0, 100, null, 0, null, null,true));
+		items.add(new GoodsEntity1(null, "西瓜", null, null, null, 0, 90, null, 0, null, null,true));
+		items.add(new GoodsEntity1(null, "萝卜", null, null, null, 0, 80, null, 0, null, null,true));
+		items.add(new GoodsEntity1(null, "土豆", null, null, null, 0, 70, null, 0, null, null,true));
+		items.add(new GoodsEntity1(null, "黄瓜", null, null, null, 0, 60, null, 0, null, null,true));
+		items.add(new GoodsEntity1(null, "白菜", null, null, null, 0, 50, null, 0, null, null,true));
+		items.add(new GoodsEntity1(null, "苹果", null, null, null, 0, 40, null, 0, null, null,true));
+		items.add(new GoodsEntity1(null, "香蕉", null, null, null, 0, 30, null, 0, null, null,true));
+		
+		shoppingCartAdapter = new ShoppingCartAdapter(context, items);
+
+		shoppingCartAdapter.setOnItemClickSelectLinstner(this);
+		
+		listview.setAdapter(shoppingCartAdapter);
+	}
+
 	
+	@Override
+	public void initData() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	//选择按钮点击事件
+	@Override
+	public void onChildClick(View view, int position, GoodsEntity1 item) {
+	
+		if(quanxuan==true)	             //全选
+		{
+			if(!item.isChecked()){//选择框全满，点击取消
+				allMoney=allMoney-items.get(position).getAmount();
+				
+			}else{				  //选择框全满，点击取消,再点击增加
+				allMoney=allMoney+items.get(position).getAmount();
+	
+			}
+		}else if(quanxuan==false)        //全空
+		{
+			if(item.isChecked()){//选择框全空，点击增加
+				allMoney=allMoney+items.get(position).getAmount();
+
+			}else{				 //选择框全空，点击增加,再点击减少
+				allMoney=allMoney-items.get(position).getAmount();
+	
+			}
+			
+		}
+		//赋值
+		text_price.setText(String.valueOf(allMoney));
+
+	}
+
+	@Override
+	protected void setLinstener() {
+		// TODO Auto-generated method stub
+		super.setLinstener();
+		//全选按钮
+		btnSelectAll.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(btnSelectAll.getText().toString().trim().equals("全选")){
+
+					// 所有项目全部选中
+					shoppingCartAdapter.configCheckMap(true);
+					shoppingCartAdapter.notifyDataSetChanged();
+					btnSelectAll.setText("全不选");
+					btnSelectAll.setSelected(true);	
+					
+					allMoney=0;
+					for(int i=0;i<items.size();i++){
+						
+						allMoney+=items.get(i).getAmount();
+					}
+					//总价赋值
+					text_price.setText(String.valueOf(allMoney));
+					
+					quanxuan=true;
+				
+				}else{
+
+					allMoney=0;
+					// 所有项目全部不选中
+					shoppingCartAdapter.configCheckMap(false);
+					shoppingCartAdapter.notifyDataSetChanged();
+					btnSelectAll.setText("全选");
+					btnSelectAll.setSelected(false);
+					//总价赋值
+					text_price.setText(String.valueOf(allMoney));
+					
+					quanxuan=false;
+				}
+				
+			}
+		});
+		
+	}
 
 }

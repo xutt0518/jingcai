@@ -5,8 +5,9 @@
     android:shape="rectangle" >
 <!--   整体颜色  -->
     <solid android:color="#FFFFFF" />
-<!--  圆形角度-->
-    <corners android:radius="6dp" />
+
+ <!--  圆形角度-->
+    <corners android:radius="0dp"/> 
     <!-- 边框的颜色和宽度 -->
     <stroke android:color="#99FF5615" android:width="0.5dp"/>
 

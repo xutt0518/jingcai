@@ -210,7 +210,6 @@ int id my_integral 0x7f090071
 int id password 0x7f090009
 int id password1 0x7f090040
 int id passwordconfrim 0x7f090041
-int id ptr 0x7f09006b
 int id ptr_classic_header_rotate_view 0x7f090052
 int id ptr_classic_header_rotate_view_header_last_update 0x7f090051
 int id ptr_classic_header_rotate_view_header_text 0x7f09004f
@@ -228,6 +227,7 @@ int id recyclerview 0x7f09006c
 int id relativeLayout1 0x7f090024
 int id scroll_pager 0x7f09005d
 int id search_button 0x7f090022
+int id swiperefreshLayout 0x7f09006b
 int id text 0x7f090090
 int id text_address 0x7f090079
 int id text_addressinfo 0x7f090046

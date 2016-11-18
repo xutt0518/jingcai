@@ -208,7 +208,7 @@
 		       <CheckBox
 		       android:id="@+id/cbCheckBox"
 		       android:layout_width="25dp"
-                android:layout_height="wrap_content"
+               android:layout_height="wrap_content"
 		       android:button="@drawable/checkbox_checked_style"
 		       android:focusable="false" />
             <TextView 

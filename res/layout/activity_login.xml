@@ -14,7 +14,7 @@
         android:src="@drawable/dbtb" />
 
     <EditText
-        android:id="@+id/text_mobile"
+        android:id="@+id/edit_phone"
         android:layout_width="290dp"
         android:layout_height="45dp"
         android:layout_gravity="center_horizontal"
@@ -28,7 +28,7 @@
         android:textColorHint="#99000000" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/edit_password"
         android:layout_width="290dp"
         android:layout_height="45dp"
         android:layout_gravity="center_horizontal"

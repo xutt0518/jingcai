@@ -1,10 +1,11 @@
 package com.jingcai.jingcaic.fragment.homepage;
 import java.util.ArrayList;
 import java.util.List;
-import in.srain.cube.views.ptr.PtrClassicFrameLayout;
-import in.srain.cube.views.ptr.PtrDefaultHandler;
-import in.srain.cube.views.ptr.PtrFrameLayout;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -30,8 +31,9 @@ import com.jingcai.jingcaic.util.UserUtil;
  * 何孝天：首页
  */
 public class HomePageFragemnt extends BaseFragment {
+	
 	private RecyclerView recyclerview;
-	private PtrClassicFrameLayout ptr;
+	private SwipeRefreshLayout swipeRefreshLayout;
 	private MyRecyclerAdapter myrecyclerAdapter;
 	private List<String> list;
 	public View view;
@@ -51,25 +53,9 @@ public class HomePageFragemnt extends BaseFragment {
 			String data="草莓";
 			list.add(data);
 		}
-	
 		return view;
 	}
 
-	//下拉刷新
-	private PtrDefaultHandler ptrDefaultHandler=new PtrDefaultHandler() {
-		@Override
-		public void onRefreshBegin(PtrFrameLayout frame) {
-			frame.postDelayed(new Runnable() {
-				@Override
-				public void run() {
-					//page = 0;
-					//recyclerViewAdapter.getfirst();
-					//mAdapter.notifyDataSetChanged();
-					ptr.refreshComplete();
-				}
-			},700);
-		}
-	};
 
 
 	@Override
@@ -79,8 +65,6 @@ public class HomePageFragemnt extends BaseFragment {
 		//使edit失去焦点
 		edit.clearFocus();
 		edit.setFocusable(false);
-	
-
 	}
     @Override
     protected void setLinstener() {
@@ -163,9 +147,14 @@ public class HomePageFragemnt extends BaseFragment {
 	}
 	@Override
 	protected void initData(View view) {
-		// TODO Auto-generated method stub
+		
 		   recyclerview=(RecyclerView)view.findViewById(R.id.recyclerview);
-		   ptr=(PtrClassicFrameLayout)view.findViewById(R.id.ptr);
+	
+		   
+		   swipeRefreshLayout=(SwipeRefreshLayout) view.findViewById(R.id.swiperefreshLayout);
+			//设置跑动颜色
+		   swipeRefreshLayout.setColorSchemeColors(R.color.orange);
+		   
 		   myrecyclerAdapter=new MyRecyclerAdapter(list,getActivity());
 		   //头布局宽度占满三列
 		   final GridLayoutManager manager = new GridLayoutManager(getActivity(), 3);
@@ -180,9 +169,51 @@ public class HomePageFragemnt extends BaseFragment {
 		   recyclerview.addItemDecoration(new GridItemDecoration(getActivity(), true));
 		   recyclerview.setAdapter(myrecyclerAdapter);
 		   rolling(recyclerview);
-		   //设置下拉刷新
-		   ptr.setPtrHandler(ptrDefaultHandler);	
+		   
+		   swipeRefreshLayout.setColorScheme(android.R.color.holo_red_light, android.R.color.holo_green_light,  
+	                android.R.color.holo_blue_bright, android.R.color.holo_orange_light); 
+		   
+		   swipeRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
+
+			@Override
+			public void onRefresh() {
+			
+				//停止动画
+				new Thread(new Runnable() {
+					
+					@Override
+					public void run() {
+						
+						try {
+							
+							Thread.sleep(2000);
+							
+							}catch (InterruptedException e) {
+			
+							e.printStackTrace();
+						}
+						handler.sendEmptyMessage(0);
+					}
+				}).start();
+				
+			}		
+		});
 	}
+	
+
+	public Handler handler=new Handler(){
+
+		public void handleMessage(Message msg) {
+		switch (msg.what) {
+		case 0:
+			swipeRefreshLayout.setRefreshing(false);
+			//adapter.notifyDataSetChanged();
+			break;
+
+		}
+		};
+	};
+	
 	@Override
 	public void initData() {
 		// TODO Auto-generated method stub

@@ -9,7 +9,9 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
-
+/**
+ * 带头布局的GridItemDecoration
+ */
 public class GridItemDecoration extends RecyclerView.ItemDecoration {
 	  private static final int[] ATTRS = new int[]{android.R.attr.listDivider};
 	    private Drawable mDivider;

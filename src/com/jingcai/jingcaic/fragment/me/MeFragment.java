@@ -88,13 +88,24 @@ public class MeFragment extends BaseFragment implements OnClickListener{
 		switch(v.getId()){
 		//立即登录页面
 		case (R.id.text_login):
-			Intent intent5=new Intent(getActivity(),LoginActivity.class);
-			startActivity(intent5);
+			if(isLogin()){
+				Intent intent=new Intent(getActivity(),MyDataActivity.class);
+			    startActivity(intent);
+			}else{
+				Intent intent=new Intent(getActivity(),LoginActivity.class);
+			    startActivity(intent);
+			}
 			break;
 		//个人资料界面
 		case(R.id.img_login):
-			Intent intent=new Intent(getActivity(),MyDataActivity.class);
-		    startActivity(intent);
+			if(isLogin()){
+				Intent intent=new Intent(getActivity(),MyDataActivity.class);
+			    startActivity(intent);
+			}else{
+				Intent intent5=new Intent(getActivity(),LoginActivity.class);
+				startActivity(intent5);
+			}
+			
 			break;
 		//我的订单界面
 		case(R.id.ly_order):

@@ -14,7 +14,7 @@
         android:src="@drawable/dbtb" />
 
     <EditText
-        android:id="@+id/text_mobile1"
+        android:id="@+id/edit_mobile1"
         android:layout_width="290dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
@@ -24,6 +24,7 @@
         android:hint="请输入手机号"
         android:layout_marginTop="10dp"
         android:paddingLeft="10dp"
+        android:phoneNumber="true"
         android:textColor="#000000"
         android:textColorHint="#99000000" />
         <LinearLayout 
@@ -52,12 +53,12 @@
            android:textColor="#999999"
            android:gravity="center"
            android:background="@drawable/bg_gray_side"
-           android:text="重新发送"/>
+           android:text="发送验证码"/>
     </LinearLayout>
 
     
     <EditText
-        android:id="@+id/password1"
+        android:id="@+id/edit_pwd"
         android:layout_width="290dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
@@ -67,11 +68,12 @@
         android:drawablePadding="10dp"
         android:hint="请输入密码"
         android:paddingLeft="10dp"
+        android:password="true"
         android:textColor="#000000"
         android:textColorHint="#99000000" />
 
      <EditText
-        android:id="@+id/passwordconfrim"
+        android:id="@+id/edit_pwdconfirm"
         android:layout_width="290dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
@@ -82,11 +84,10 @@
         android:hint="确认密码"
         android:paddingLeft="10dp"
         android:textColor="#000000"
-        android:textColorHint="#99000000" />
-
-   
+        android:textColorHint="#99000000" 
+        android:password="true"/> 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_signin"
         android:layout_width="290dp"
         android:layout_height="40dp"
         android:layout_marginTop="35dp"

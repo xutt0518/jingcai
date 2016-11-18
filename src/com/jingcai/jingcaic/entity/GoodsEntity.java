@@ -29,6 +29,9 @@ public class GoodsEntity {
 	 * 标识是否可以删除
 	 */
 	private boolean canRemove = true;
+	//是否选中
+	public Boolean checked=true;
+	
 	
 	public GoodsEntity() {
 		
@@ -52,7 +55,10 @@ public class GoodsEntity {
 		this.canRemove = canRemove;
 	}
 
-
+	public Boolean isChecked() {
+		// TODO Auto-generated method stub
+		return checked;
+	}
 	public boolean isCanRemove() {
 		return canRemove;
 	}
@@ -127,5 +133,6 @@ public class GoodsEntity {
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
 	}
+	
 	
 }

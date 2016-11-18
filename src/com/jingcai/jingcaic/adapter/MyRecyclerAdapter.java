@@ -22,6 +22,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
 	private View mHeaderView;
 	private List<String> list=new ArrayList<String>();
 	private Context context;
+	//头布局中四按钮
 	private LinearLayout Search_food;
 	private LinearLayout Search_outing;
 	private LinearLayout Search_hotel;
@@ -31,8 +32,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
 		public interface OnItemClickListener{
 			void onItemClick(View v,int position);//设置点击事件
 		}
-		public static void setmOnItemClickListener(
-				OnItemClickListener mOnItemClickListener) {
+		public static void setmOnItemClickListener(OnItemClickListener mOnItemClickListener) {
 			MyRecyclerAdapter.mOnItemClickListener = mOnItemClickListener;
 		}
 	public MyRecyclerAdapter(List<String> list, Context context) {

@@ -4,6 +4,7 @@
     android:versionCode="1"
     android:versionName="1.0" >
 	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="18" />
@@ -77,7 +78,14 @@
 			<activity 
 			android:name="com.jingcai.jingcaic.activity.homepage.SearchActivity"
 			    ></activity>
-			
+			<activity
+			 android:name="com.jingcai.jingcaic.fragment.homepage.HomePageFragemnt"
+			    >
+            </activity>
+            <activity
+                android:name="com.jingcai.jingcaic.activity.JingCaiCActivity"
+                >
+            </activity>
            </application>
 
 </manifest>

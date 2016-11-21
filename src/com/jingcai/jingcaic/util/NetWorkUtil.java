@@ -98,9 +98,6 @@ public class NetWorkUtil {
 		return result;
 	}
 	
-	/**
-	 * ���������ý���
-	 */
 	public static void openSetting(Activity activity)
 	{
 		Intent intent = new Intent("/");

@@ -23,7 +23,7 @@ import com.jingcai.jingcaic.util.ConstantUtils;
 import com.jingcai.jingcaic.util.NetWorkUtil;
 import com.jingcai.jingcaic.util.UserUtil;
 
-public class SigninActivity extends BaseActivity implements OnClickListener{
+public class RegistActivity extends BaseActivity implements OnClickListener{
 
 	private TextView text_yzm;//发送
 	private EditText edit_mobile;//手机号
@@ -59,7 +59,13 @@ public class SigninActivity extends BaseActivity implements OnClickListener{
 	public void onClick(View v) {
 	   switch(v.getId()){
 	   case R.id.text_yzm:
+		   //手机号码
 		   String textphone=edit_mobile.getText().toString();
+		   //验证码
+		
+		   //密码
+		   
+		  //验证手机号格式
 		   if(UserUtil.isMobileNO(textphone)){
 			   sendyzm(textphone);
 		   }else{
@@ -116,13 +122,13 @@ public class SigninActivity extends BaseActivity implements OnClickListener{
 						Gson gson = new Gson();
 						LogBean registerbean=gson.fromJson(Json,LogBean.class);
 						if(registerbean.code.equals("0")){
-								Intent intent=new Intent(SigninActivity.this,LoginActivity.class);
-								SigninActivity.this.startActivity(intent);
+								Intent intent=new Intent(RegistActivity.this,LoginActivity.class);
+								RegistActivity.this.startActivity(intent);
 								finish();
-								Toast.makeText(SigninActivity.this,"注册完成",Toast.LENGTH_LONG).show();									
+								Toast.makeText(RegistActivity.this,"注册完成",Toast.LENGTH_LONG).show();									
 								return;
 							}else{
-								Toast.makeText(SigninActivity.this,"注册失败",Toast.LENGTH_LONG).show();	
+								Toast.makeText(RegistActivity.this,"注册失败",Toast.LENGTH_LONG).show();	
 							}
 						}
 					
@@ -141,6 +147,7 @@ public class SigninActivity extends BaseActivity implements OnClickListener{
 				final String result = NetWorkUtil.GetDate(ConstantUtils.VERIFY
 						+ "/mobile/" + mobile);
 				Log.e("验证码", "获取验证码：" + result);
+				System.out.println("11111"+result.toString());
 				runOnUiThread(new Runnable(){
 					@Override
 					public void run() {
@@ -150,17 +157,18 @@ public class SigninActivity extends BaseActivity implements OnClickListener{
 							code = verifyBean.code;
 							status=verifyBean.result.status;
 							newyzm = verifyBean.result.verifycode;
+							System.out.println("11111"+code);
 						}else{
-							Toast.makeText(SigninActivity.this,"获取验证码失败",Toast.LENGTH_LONG).show();	
+							Toast.makeText(RegistActivity.this,"获取验证码失败",Toast.LENGTH_LONG).show();	
 						}
-											}
+					}
 					
 				});				
 			}
 		}).start();
 	}
 	
-	// 倒计时
+			// 倒计时
 			class TimeCount extends CountDownTimer {
 				public TimeCount(long millisInFuture, long countDownInterval) {
 					super(millisInFuture, countDownInterval);// 参数依次为总时长,和计时的时间间隔

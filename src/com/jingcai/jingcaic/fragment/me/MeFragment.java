@@ -40,6 +40,8 @@ public class MeFragment extends BaseFragment implements OnClickListener{
     private ImageView imageLogin;
     private String userId;
     private TextView tvLogin;
+    //签到
+    private TextView text_signin;
 	@Override
 	public View initView(LayoutInflater inflater) {
 		View view=inflater.inflate(R.layout.fragment_my, null);
@@ -61,6 +63,9 @@ public class MeFragment extends BaseFragment implements OnClickListener{
 		ly_service=(LinearLayout)view.findViewById(R.id.ly_service);
 		ly_set=(LinearLayout)view.findViewById(R.id.ly_set);
 		ly_suggest=(LinearLayout)view.findViewById(R.id.ly_suggest);
+		//签到
+		text_signin=(TextView) view.findViewById(R.id.text_signin);
+		
 		tvLogin.setOnClickListener(this);
 		imageLogin.setOnClickListener(this);
 		ly_attention.setOnClickListener(this);
@@ -73,6 +78,7 @@ public class MeFragment extends BaseFragment implements OnClickListener{
 		ly_service.setOnClickListener(this);
 		ly_set.setOnClickListener(this);
 		ly_suggest.setOnClickListener(this);
+		text_signin.setOnClickListener(this);
 		
 	}
 	@Override
@@ -86,6 +92,11 @@ public class MeFragment extends BaseFragment implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){
+		//签到
+		case (R.id.text_signin):
+			Intent intent6=new Intent(getActivity(),LoginActivity.class);
+	        startActivity(intent6);
+	        break;		
 		//立即登录页面
 		case (R.id.text_login):
 			if(isLogin()){

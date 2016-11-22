@@ -26,7 +26,7 @@ public class WalletActivity extends BaseActivity implements OnClickListener{
 		switch(v.getId()){
 		//进入注册界面
 		case R.id.title_tv_right:
-			Intent intent=new Intent(WalletActivity.this,SigninActivity.class);
+			Intent intent=new Intent(WalletActivity.this,RegistActivity.class);
 			startActivity(intent);			
 			break;
 		case (R.id.bt_chongzhi):

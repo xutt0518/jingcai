@@ -27,7 +27,7 @@ public class OrderlistActivity extends BaseActivity implements OnClickListener{
 		switch(v.getId()){
 		//进入注册界面
 		case R.id.title_tv_right:
-			Intent intent=new Intent(OrderlistActivity.this,SigninActivity.class);
+			Intent intent=new Intent(OrderlistActivity.this,RegistActivity.class);
 			startActivity(intent);			
 			break;
 		default:

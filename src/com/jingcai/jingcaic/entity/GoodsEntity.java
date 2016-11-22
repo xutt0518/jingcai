@@ -1,7 +1,5 @@
 package com.jingcai.jingcaic.entity;
-/**
- * 商品详情类
- */
+
 public class GoodsEntity {
 	//商品id
 	private String id;
@@ -14,32 +12,29 @@ public class GoodsEntity {
 	//商品图片
 	private String img;
 	//商品单价
-	private String unit_prince;
+	private int unit_prince;
 	//商品总价
-	private String amount;
+	private int amount;
 	//商品规格（10斤装）
 	private String unit_bag_weight;
 	//数量
-	private String number;
+	private int number;
 	//商品注释(标明此商品是否属于限购商品，购买要求，以及一些特殊要求)
 	private String  notes;
 	//商品介绍
 	private String introduce;
+
+	//是否选中
+	public Boolean checked=true;
 	/**
 	 * 标识是否可以删除
 	 */
 	private boolean canRemove = true;
-	//是否选中
-	public Boolean checked=true;
 	
-	
-	public GoodsEntity() {
-		
-	}
+	//构造方法
 	public GoodsEntity(String id, String title, String is_valid,
-			String is_sales, String img, String unit_prince, String amount,
-			String unit_bag_weight, String number, String notes,
-			String introduce, boolean canRemove) {
+			String is_sales, String img, int unit_prince, int amount,
+			String unit_bag_weight, int number, String notes, String introduce, boolean canRemove) {
 		this.id = id;
 		this.title = title;
 		this.is_valid = is_valid;
@@ -54,17 +49,16 @@ public class GoodsEntity {
 		//标识是否可以删除
 		this.canRemove = canRemove;
 	}
-
-	public Boolean isChecked() {
-		// TODO Auto-generated method stub
-		return checked;
-	}
+	
 	public boolean isCanRemove() {
 		return canRemove;
 	}
-
 	public void setCanRemove(boolean canRemove) {
 		this.canRemove = canRemove;
+	}
+	public Boolean isChecked() {
+		// TODO Auto-generated method stub
+		return checked;
 	}
 	
 	public String getId() {
@@ -97,16 +91,16 @@ public class GoodsEntity {
 	public void setImg(String img) {
 		this.img = img;
 	}
-	public String getUnit_prince() {
+	public int getUnit_prince() {
 		return unit_prince;
 	}
-	public void setUnit_prince(String unit_prince) {
+	public void setUnit_prince(int unit_prince) {
 		this.unit_prince = unit_prince;
 	}
-	public String getAmount() {
+	public int getAmount() {
 		return amount;
 	}
-	public void setAmount(String amount) {
+	public void setAmount(int amount) {
 		this.amount = amount;
 	}
 	public String getUnit_bag_weight() {
@@ -115,10 +109,10 @@ public class GoodsEntity {
 	public void setUnit_bag_weight(String unit_bag_weight) {
 		this.unit_bag_weight = unit_bag_weight;
 	}
-	public String getNumber() {
+	public int getNumber() {
 		return number;
 	}
-	public void setNumber(String number) {
+	public void setNumber(int number) {
 		this.number = number;
 	}
 	public String getNotes() {
@@ -133,6 +127,9 @@ public class GoodsEntity {
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
 	}
-	
+
+
+
+
 	
 }

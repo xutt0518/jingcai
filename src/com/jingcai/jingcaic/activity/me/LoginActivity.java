@@ -87,7 +87,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener{
 		switch(v.getId()){
 		//进入注册界面
 		case R.id.title_tv_right:
-			Intent intent=new Intent(LoginActivity.this,SigninActivity.class);
+			Intent intent=new Intent(LoginActivity.this,RegistActivity1.class);
 			startActivity(intent);			
 			break;
 		case R.id.btn_login:

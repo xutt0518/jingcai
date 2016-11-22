@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.jingcai.jingcaic.R;
-import com.jingcai.jingcaic.entity.GoodsEntity1;
+import com.jingcai.jingcaic.entity.GoodsEntity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +16,7 @@ import android.widget.TextView;
 public class ShoppingCartAdapter extends BaseAdapter{
 	
 	private Context context;
-	private List<GoodsEntity1> datas = null;
+	private List<GoodsEntity> datas = null;
 	LayoutInflater inflater;
 	
 	/**
@@ -35,7 +35,7 @@ public class ShoppingCartAdapter extends BaseAdapter{
 	 */
 	public interface onItemClickSelectLinstner{
 		
-		void onChildClick(View view,int position,GoodsEntity1 item);
+		void onChildClick(View view,int position,GoodsEntity item);
 	
 	}
 	
@@ -46,7 +46,7 @@ public class ShoppingCartAdapter extends BaseAdapter{
 	}
 	
 	
-	public ShoppingCartAdapter(Context context, List<GoodsEntity1> datas) {
+	public ShoppingCartAdapter(Context context, List<GoodsEntity> datas) {
 		this.context = context;
 		this.datas = datas;
 		inflater = LayoutInflater.from(context);
@@ -101,7 +101,7 @@ public class ShoppingCartAdapter extends BaseAdapter{
 		}
 		
 			//获得item
-			final GoodsEntity1 item=datas.get(position);
+			final GoodsEntity item=datas.get(position);
 			//标识可以删除
 			boolean canRemove = item.isCanRemove();
 			

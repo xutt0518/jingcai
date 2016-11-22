@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.jingcai.jingcaic.R;
 import com.jingcai.jingcaic.adapter.ShoppingCartAdapter;
 import com.jingcai.jingcaic.adapter.ShoppingCartAdapter.onItemClickSelectLinstner;
-import com.jingcai.jingcaic.entity.GoodsEntity1;
+import com.jingcai.jingcaic.entity.GoodsEntity;
 import com.jingcai.jingcaic.fragment.BaseFragment;
 
 public class ShoppingCatFragment extends BaseFragment implements onItemClickSelectLinstner{
@@ -21,7 +21,7 @@ public class ShoppingCatFragment extends BaseFragment implements onItemClickSele
 	private ListView listview;
 	//全选
 	private Button btnSelectAll;
-	private List<GoodsEntity1>items;
+	private List<GoodsEntity>items;
 	private ShoppingCartAdapter shoppingCartAdapter;
 	//总价
 	private TextView text_price;
@@ -54,15 +54,15 @@ public class ShoppingCatFragment extends BaseFragment implements onItemClickSele
 
 	@Override
 	protected void initData(View view) {
-		items=new ArrayList<GoodsEntity1>();
-		items.add(new GoodsEntity1(null, "西红柿", null, null, null, 0, 100, null, 0, null, null,true));
-		items.add(new GoodsEntity1(null, "西瓜", null, null, null, 0, 90, null, 0, null, null,true));
-		items.add(new GoodsEntity1(null, "萝卜", null, null, null, 0, 80, null, 0, null, null,true));
-		items.add(new GoodsEntity1(null, "土豆", null, null, null, 0, 70, null, 0, null, null,true));
-		items.add(new GoodsEntity1(null, "黄瓜", null, null, null, 0, 60, null, 0, null, null,true));
-		items.add(new GoodsEntity1(null, "白菜", null, null, null, 0, 50, null, 0, null, null,true));
-		items.add(new GoodsEntity1(null, "苹果", null, null, null, 0, 40, null, 0, null, null,true));
-		items.add(new GoodsEntity1(null, "香蕉", null, null, null, 0, 30, null, 0, null, null,true));
+		items=new ArrayList<GoodsEntity>();
+		items.add(new GoodsEntity(null, "西红柿", null, null, null, 0, 100, null, 0, null, null,true));
+		items.add(new GoodsEntity(null, "西瓜", null, null, null, 0, 90, null, 0, null, null,true));
+		items.add(new GoodsEntity(null, "萝卜", null, null, null, 0, 80, null, 0, null, null,true));
+		items.add(new GoodsEntity(null, "土豆", null, null, null, 0, 70, null, 0, null, null,true));
+		items.add(new GoodsEntity(null, "黄瓜", null, null, null, 0, 60, null, 0, null, null,true));
+		items.add(new GoodsEntity(null, "白菜", null, null, null, 0, 50, null, 0, null, null,true));
+		items.add(new GoodsEntity(null, "苹果", null, null, null, 0, 40, null, 0, null, null,true));
+		items.add(new GoodsEntity(null, "香蕉", null, null, null, 0, 30, null, 0, null, null,true));
 		
 		shoppingCartAdapter = new ShoppingCartAdapter(context, items);
 
@@ -80,7 +80,7 @@ public class ShoppingCatFragment extends BaseFragment implements onItemClickSele
 	
 	//选择按钮点击事件
 	@Override
-	public void onChildClick(View view, int position, GoodsEntity1 item) {
+	public void onChildClick(View view, int position, GoodsEntity item) {
 	
 		if(quanxuan==true)	             //全选
 		{
